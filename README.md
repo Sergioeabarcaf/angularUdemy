@@ -19,3 +19,18 @@ Desarrollo del curso de angular 4 dictado en Udemy
     --habilitar fuzzy file matching
     --descartivar commonjs "require"
     --remove extension ".js, .ts"
+
+#Uso de TypeScript y ES6
+*TypeScript
+  -para compilar un archivo .ts se debe ejecutar en la terminal
+  tsc "nombre archivo" -w
+  De esta forma TypeScript esta en modo observador para detectar los cambios y compilar nuevamente de manera automatica
+
+  -Cuando se quiere observar mas de un archivo .ts a la vez, hay que inicializar un proyecto
+  tsc -init
+
+  -let = separa las variables locales de las globales. De esta forma Typescript le da un valor distinto para utilizarlo
+
+  -var = variables gloables de js
+
+  -const = variables que no se pueden cambiar y necesitan ser definidas al momento de declararlas
