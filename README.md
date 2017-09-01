@@ -34,3 +34,12 @@ Desarrollo del curso de angular 4 dictado en Udemy
   -var = variables gloables de js
 
   -const = variables que no se pueden cambiar y necesitan ser definidas al momento de declararlas
+
+  las variables se declaran con el tipo de dato
+  let "nombreVariable":"tipoDato" = "valorDato";
+  let perro:string = "chocolo";
+  tipos de datos: string, number, boolean,Date,any (flexibilizar la variable)
+
+  template literales:
+
+  let texto = `hola, ${nombre} ${apellido} (${edad})`;
