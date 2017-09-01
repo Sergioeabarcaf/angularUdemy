@@ -1,7 +1,8 @@
-let mensaje = "hola";
-if (true){
-  let mensaje = "adios";
-}
-console.log(mensaje)
+let nombre:string = "Juan"
+let apellido:string = "Perez"
+let edad:number = 30
 
-const perro = "guau";
+//let texto = "Hola" + nombre + " " + apellido + " ("+edad+")"
+let texto = `hola, ${nombre} ${apellido} (${edad})`;
+
+console.log(texto);
