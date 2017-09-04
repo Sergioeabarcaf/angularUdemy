@@ -1,7 +1,7 @@
 "use strict";
-var nombre = "Juan";
-var apellido = "Perez";
-var edad = 30;
-//let texto = "Hola" + nombre + " " + apellido + " ("+edad+")"
-var texto = "hola, " + nombre + " " + apellido + " (" + edad + ")";
-console.log(texto);
+function activar(quien, objeto) {
+    if (objeto === void 0) { objeto = "algo"; }
+    var texto = quien + " activo " + objeto;
+    console.log(texto);
+}
+activar("perro");

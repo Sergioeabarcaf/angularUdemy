@@ -1,6 +1,6 @@
 
-function activar (quien:string){
-  let texto:string = `${quien} activo algo`;
+function activar (quien:string, objeto:string = "algo"){
+  let texto:string = `${quien} activo ${objeto}`;
   console.log(texto)
 }
 
