@@ -1,8 +1,7 @@
-let nombre:string = "Juan"
-let apellido:string = "Perez"
-let edad:number = 30
 
-//let texto = "Hola" + nombre + " " + apellido + " ("+edad+")"
-let texto = `hola, ${nombre} ${apellido} (${edad})`;
+function activar (quien:string){
+  let texto:string = `${quien} activo algo`;
+  console.log(texto)
+}
 
-console.log(texto);
+activar("perro");
