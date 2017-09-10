@@ -5,5 +5,12 @@ import { Component } from '@angular/core';
   templateUrl: 'body.component.html'
 })
 export class BodyComponent {
+  mostrar:boolean = false;
+  frase:any = {
+    mensaje:"Un gran poder requiere una gran responsabilidad",
+    autor:"Ben Parker",
+    encabezado:"Frases del dia"
+  }
 
+  personajes:string[] = ["Spiderman" , "Ironman" , "Capitan America"];
 }
