@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class heroesService {
+export class HeroesService {
   constructor() {
   console.log("servicio listo") }
 }
