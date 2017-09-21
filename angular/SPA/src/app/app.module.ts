@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from "@angular/http";
 
 //RUTAS
 import { APP_ROUTING } from './app.routes';
