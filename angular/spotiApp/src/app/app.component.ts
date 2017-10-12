@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  nombre = "Sergio";
-  activar:boolean = true;
+  title = 'app';
 }
