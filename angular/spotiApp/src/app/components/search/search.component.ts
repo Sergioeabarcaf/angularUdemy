@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotiAppService } from '../../services/spoti-app.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styles: []
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(public _spotiApp:SpotiAppService ) { }
 
 }
