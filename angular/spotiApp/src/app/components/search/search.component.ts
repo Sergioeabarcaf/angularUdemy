@@ -8,6 +8,8 @@ import { SpotiAppService } from '../../services/spoti-app.service';
 })
 export class SearchComponent {
 
-  constructor(public _spotiApp:SpotiAppService ) { }
+  constructor(public _spotiApp:SpotiAppService ) {
+
+  }
 
 }
