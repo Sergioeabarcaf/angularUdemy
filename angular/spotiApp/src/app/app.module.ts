@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { APP_ROUTING } from './app.routes';
 
 //servicios
+import { SpotiAppService } from '../app/services/spoti-app.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -26,7 +27,9 @@ import { SearchComponent } from './components/search/search.component';
     HttpModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    SpotiAppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
