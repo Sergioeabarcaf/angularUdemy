@@ -12,7 +12,7 @@ export class SpotiAppService {
   }
 
   getArtistas(termino:string){
-    let url = `https://api.spotify.com/v1/search?q=${termino}&type=artist`;
+    let url = `https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=50`;
     let headers = new HttpHeaders({
       'authorization': 'Bearer BQAk736KogYMIrq_5mxmSwgANqmB-6wy22F77Mrof0vdVLkGvtwkWSjypw_bJWmJr_bLoPKYZwFrtU37Svk'
     });
