@@ -9,7 +9,10 @@ import { SpotiAppService } from '../../services/spoti-app.service';
 export class SearchComponent {
 
   constructor(public _spotiApp:SpotiAppService ) {
-    _spotiApp.getArtistas();
+    _spotiApp.getArtistas().subscribe(res =>{
+      console.log("info lista");
+      console.log(res);
+    })
 
   }
 
