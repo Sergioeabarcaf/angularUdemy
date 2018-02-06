@@ -12,9 +12,9 @@ export class ArtistComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute, public _spotiService:SpotiAppService ) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe( params =>{
-      console.log(params);
+    this.activatedRoute.params.map( params => params['id']).subscribe(id =>{
+      console.log(id);
     })
   }
-
+  
 }
