@@ -9,13 +9,16 @@ import { SpotiAppService } from '../../services/spoti-app.service';
 })
 export class ArtistComponent implements OnInit {
 
+  artista:any = {};
+
   constructor(private activatedRoute:ActivatedRoute, public _spotiService:SpotiAppService ) { }
 
   ngOnInit() {
     this.activatedRoute.params.map( params => params['id']).subscribe(id =>{
       console.log(id);
-      this._spotiService.getArtista( id ).subscribe( artista => {
-        console.log(artista);
+      this._spotiService.getArtista( id ).subscribe( respArtista => {
+        console.log(respArtista);
+        this.artista = respArtista;
       });
     })
   }
