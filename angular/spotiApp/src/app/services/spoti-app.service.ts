@@ -17,9 +17,9 @@ export class SpotiAppService {
       'authorization': 'Bearer BQCDiIy9_GXFXMB26rfMlDfSWbI26MW2DTmJmGM6cd88L6p8jRqPbYyU6qd4CpuujhHrEYc39k45tK6oa00'
     });
 
-    return this.http.get(url, { headers }).map( res =>{
-
-    })
+    return this.http.get(url, { headers }).map( (res:any) =>{
+      return res.artists.items;
+    });
   }
 
 }
