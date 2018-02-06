@@ -11,10 +11,10 @@ export class SpotiAppService {
     console.log("Servicio SpotiApp listo!");
   }
 
-  getArtistas(){
-    let url = "https://api.spotify.com/v1/search?q=metallica&type=artist";
+  getArtistas(termino:string){
+    let url = `https://api.spotify.com/v1/search?q=${termino}&type=artist`;
     let headers = new HttpHeaders({
-      'authorization': 'Bearer BQCDiIy9_GXFXMB26rfMlDfSWbI26MW2DTmJmGM6cd88L6p8jRqPbYyU6qd4CpuujhHrEYc39k45tK6oa00'
+      'authorization': 'Bearer BQAk736KogYMIrq_5mxmSwgANqmB-6wy22F77Mrof0vdVLkGvtwkWSjypw_bJWmJr_bLoPKYZwFrtU37Svk'
     });
 
     return this.http.get(url, { headers }).map( (res:any) =>{
