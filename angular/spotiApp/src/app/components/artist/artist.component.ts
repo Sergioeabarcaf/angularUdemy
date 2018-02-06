@@ -14,7 +14,10 @@ export class ArtistComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.map( params => params['id']).subscribe(id =>{
       console.log(id);
+      this._spotiService.getArtista( id ).subscribe( artista => {
+        console.log(artista);
+      });
     })
   }
-  
+
 }
