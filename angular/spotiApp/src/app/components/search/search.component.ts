@@ -10,12 +10,13 @@ export class SearchComponent {
 
   termino:string = ' ';
 
-  constructor(public _spotiApp:SpotiAppService ) {
-    _spotiApp.getArtistas().subscribe(artistas =>{
-      console.log("info lista");
-      console.log(artistas);
-    })
+  constructor(public _spotiApp:SpotiAppService ) { }
 
+  buscarArtista(){
+    if (this.termino.length > 0) {
+      this._spotiApp.getArtistas(this.termino).subscribe(artistas =>{
+      })
+
+    }
   }
-
 }
