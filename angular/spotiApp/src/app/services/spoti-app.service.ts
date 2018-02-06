@@ -6,19 +6,38 @@ import 'rxjs/add/operator/map';
 export class SpotiAppService {
 
   artistas:any[] = [];
+  artista:any[] = [];
+  urlSpotify:string = 'https://api.spotify.com/v1/';
+  token:string = 'BQBswg3u_1aTJtG1eWVOjqTkHNfATKMeQ7nEgHl3ZaQLb0DMKS3LqNUL2KsIObxl37nG9SKTGH5NbZfy8ts';
 
   constructor( public http: HttpClient ) {
     console.log("Servicio SpotiApp listo!");
   }
 
-  getArtistas(termino:string){
-    let url = `https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=50`;
+  private getHeaders():HttpHeaders{
     let headers = new HttpHeaders({
-      'authorization': 'Bearer BQBswg3u_1aTJtG1eWVOjqTkHNfATKMeQ7nEgHl3ZaQLb0DMKS3LqNUL2KsIObxl37nG9SKTGH5NbZfy8ts'
+      'authorization': 'Bearer ' + this.token
     });
+
+    return headers;
+  }
+
+  getArtistas(termino:string){
+    let url = `${ this.urlSpotify }search?q=${termino}&type=artist&limit=50`;
+    let headers = this.getHeaders();
 
     return this.http.get(url, { headers }).map( (res:any) =>{
       this.artistas = res.artists.items;
+      return this.artistas;
+    });
+  }
+
+  getArtista(id:string){
+    let url = `${ this.urlSpotify }artists/${ id }`;
+    let headers = this.getHeaders();
+
+    return this.http.get(url, { headers }).map( (res:any) =>{
+      this.artista = res;
       return this.artistas;
     });
   }
