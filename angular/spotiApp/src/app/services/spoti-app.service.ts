@@ -14,7 +14,7 @@ export class SpotiAppService {
   getArtistas(termino:string){
     let url = `https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=50`;
     let headers = new HttpHeaders({
-      'authorization': 'Bearer BQAk736KogYMIrq_5mxmSwgANqmB-6wy22F77Mrof0vdVLkGvtwkWSjypw_bJWmJr_bLoPKYZwFrtU37Svk'
+      'authorization': 'Bearer BQB6SwLIjy6YOpwtV0gj18q9xwbp4l8d1GfgBPd2OT2BMRswecj5C6cuBtHSFA2wz5vAPk7pkCu3ZD3WN4w'
     });
 
     return this.http.get(url, { headers }).map( (res:any) =>{
