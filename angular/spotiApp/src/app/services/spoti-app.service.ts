@@ -18,7 +18,8 @@ export class SpotiAppService {
     });
 
     return this.http.get(url, { headers }).map( (res:any) =>{
-      return res.artists.items;
+      this.artistas = res.artists.items;
+      return this.artistas;
     });
   }
 
