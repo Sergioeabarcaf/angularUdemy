@@ -14,10 +14,7 @@ export class SearchComponent {
 
   buscarArtista(){
     if (this.termino.length > 0) {
-      this._spotiApp.getArtistas(this.termino).subscribe(artistas =>{
-        console.log(artistas);
-      })
-
+      this._spotiApp.getArtistas(this.termino).subscribe(artistas =>{})
     }
   }
 }
