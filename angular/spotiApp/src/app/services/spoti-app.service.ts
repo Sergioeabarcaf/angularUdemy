@@ -36,10 +36,11 @@ export class SpotiAppService {
     let url = `${ this.urlSpotify }artists/${ id }`;
     let headers = this.getHeaders();
 
-    return this.http.get(url, { headers }).map( (res:any) =>{
-      this.artista = res;
-      return this.artistas;
-    });
+    return this.http.get(url, { headers });
+    // .map( (res:any) =>{
+    //   this.artista = res;
+    //   return this.artistas;
+    // });
   }
 
 }
