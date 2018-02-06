@@ -5,12 +5,17 @@
       <input type="text"
              placeholder="Busque Artista..."
              class="form-control"
-             (keyup)="buscarArtista()" 
+             (keyup)="buscarArtista()"
              [(ngModel)]="termino">
     </div>
     <div class="col-md-9" *ngIf="termino.length > 1">
       <h1>{{termino}}</h1>
       <hr>
+      <ul>
+        <li *ngFor="let artista of _spotiApp.artistas">
+          {{artista.name}}
+        </li>
+      </ul>
 
     </div>
   </div>
