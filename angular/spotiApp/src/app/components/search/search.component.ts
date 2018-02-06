@@ -8,6 +8,8 @@ import { SpotiAppService } from '../../services/spoti-app.service';
 })
 export class SearchComponent {
 
+  termino:string = ' ';
+
   constructor(public _spotiApp:SpotiAppService ) {
     _spotiApp.getArtistas().subscribe(artistas =>{
       console.log("info lista");
