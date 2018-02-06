@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SpotiAppService } from '../../services/spoti-app.service';
 
 @Component({
   selector: 'app-artist',
@@ -8,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtistComponent implements OnInit {
 
-  constructor(private activatedRoute:ActivatedRoute ) { }
+  constructor(private activatedRoute:ActivatedRoute, public _spotiService:SpotiAppService ) { }
 
   ngOnInit() {
   }
