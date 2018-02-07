@@ -20,6 +20,11 @@ export class ArtistComponent implements OnInit {
         console.log(respArtista);
         this.artista = respArtista;
       });
+
+      this._spotiService.getTop ( id ).subscribe( topArtista => {
+        console.log(topArtista);
+      })
+
     })
   }
 
