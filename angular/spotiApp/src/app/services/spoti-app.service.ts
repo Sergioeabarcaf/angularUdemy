@@ -37,10 +37,13 @@ export class SpotiAppService {
     let headers = this.getHeaders();
 
     return this.http.get(url, { headers });
-    // .map( (res:any) =>{
-    //   this.artista = res;
-    //   return this.artistas;
-    // });
+  }
+
+  getTop(id:string){
+    let url = `${ this.urlSpotify }artists/${ id }/top-tracks?country=CL`;
+    let headers = this.getHeaders();
+
+    return this.http.get(url, { headers });
   }
 
 }
