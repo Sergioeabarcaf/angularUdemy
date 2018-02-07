@@ -21,10 +21,9 @@ export class ArtistComponent implements OnInit {
         this.artista = respArtista;
       });
 
-      this._spotiService.getTop ( id ).subscribe( topArtista => {
-        console.log(topArtista);
-      })
-
+      this._spotiService.getTop( id ).map((resp:any) => resp.tracks).subscribe( pistas => {
+        console.log(pistas);
+      });
     })
   }
 
