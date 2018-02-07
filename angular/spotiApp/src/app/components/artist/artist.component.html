@@ -1,3 +1,28 @@
-<p>
-  artist works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-3">
+      <img [src]="artista.images[1].url" class="mx-auto d-block rounded-circle"  style="max-width:100%;" alt="" *ngIf="artista.images.length > 0">
+      <!-- <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="artista.images.length == 0"> -->
+    </div>
+    <br>
+    <div class="col-12 col-sm-12 col-md-9">
+      <h1>{{ artista.name }}</h1>
+      <p>top Tracks en Chile</p>
+      <hr>
+      <button type="button" name="button"></button>
+      <button type="button" name="button"></button>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngFor="let pista of topArtista">
+    <div class="col-3 ">
+      <img [src]="pista.album.images[1].url" class="img-thumbnail"  style="max-width:100%;" alt="" >
+      <!-- <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="pista.album.images.images.length == 0"> -->
+
+    </div>
+    <div class="col-9">
+      <p>{{ pista.name }}</p>
+
+    </div>
+  </div>
+</div>
