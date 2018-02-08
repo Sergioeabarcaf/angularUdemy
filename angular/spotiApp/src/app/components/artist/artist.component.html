@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-sm-12 col-md-3">
       <img [src]="artista.images[1].url" class="mx-auto d-block rounded-circle"  style="max-width:100%;" alt="" *ngIf="artista.images.length > 0">
-      <!-- <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="artista.images.length == 0"> -->
+      <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="artista.images.length == 0">
     </div>
     <br>
     <div class="col-12 col-sm-12 col-md-9">
@@ -28,7 +28,7 @@
     <div class="col-1">
       <p>{{ pista.popularity }}%</p>
     </div>
-    <div class="col-4">
+    <div class="col-4" *ngIf="pista.preview_url != null">
       <audio controls>
         <source [src]="pista.preview_url">Navegador malo
       </audio>
