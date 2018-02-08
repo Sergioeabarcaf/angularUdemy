@@ -9,15 +9,15 @@
       <h1>{{ artista.name }}</h1>
       <p>top Tracks en Chile</p>
       <hr>
-      <button type="button" class="btn btn-outline-success">Ver en Spotify</button>
-      <button type="button" class="btn btn-outline-danger" [routerLink]="['search']">Regresar</button>
+      <a class="btn btn-outline-success" [href]="artista.external_urls.spotify" role="button" target="_blank">Ver en Spotify</a>
+      <button type="button" class="btn btn-outline-danger" [routerLink]="['/search']">Regresar</button>
     </div>
   </div>
   <hr>
   <div class="row" *ngFor="let pista of topArtista">
     <div class="col-3 ">
       <img [src]="pista.album.images[1].url" class="img-thumbnail"  style="max-width:100%;" alt="" >
-      <!-- <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="pista.album.images.images.length == 0"> -->
+      <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="pista.album.images.length == 0">
 
     </div>
     <div class="col-9">
