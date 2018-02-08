@@ -8,7 +8,7 @@ export class SpotiAppService {
   artistas:any[] = [];
   artista:any[] = [];
   urlSpotify:string = 'https://api.spotify.com/v1/';
-  token:string = 'BQDrK120Lu_60M1DM4ajmcWnKbfukaIYgcxXGNewHWKjCaQxJkEVaSR9sHKcjyFNMPKgYlm56RHsLKFAaCQ';
+  token:string = 'BQDyEz6ktNZHIvEocl2QRNd_jJsKOxT6mehxxGLAoxQ4lIJwkrDDfY4MHgEIiWB18VEIXGir4k8ib6LStLU';
 
   constructor( public http: HttpClient ) {
     console.log("Servicio SpotiApp listo!");
