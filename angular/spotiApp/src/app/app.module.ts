@@ -9,6 +9,9 @@ import { APP_ROUTING } from './app.routes';
 //servicios
 import { SpotiAppService } from '../app/services/spoti-app.service';
 
+//pipes
+import { DomseguroPipe } from '../app/pipes/domseguro.pipe';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -21,6 +24,7 @@ import { ArtistComponent } from './components/artist/artist.component';
     HomeComponent,
     NavbarComponent,
     SearchComponent,
+    DomseguroPipe,
     ArtistComponent
   ],
   imports: [
