@@ -8,7 +8,7 @@ export class SpotiAppService {
   artistas:any[] = [];
   artista:any[] = [];
   urlSpotify:string = 'https://api.spotify.com/v1/';
-  token:string = 'BQBB5cMXj7HOpAqPLOi0-DTti00z_fG1QjxsNfIJhlCbE3BIabjAWK04RwK12v5jAWggUSJzu0KsyGpMkww';
+  token:string = 'BQDh8vBqRZfIA7HxsJVKkCtnpeqH1x36S0qLMqSSazEsBIOtk-5xoHpzWXRvU5OW89t38_IrkH-Rsd0n7ek';
 
   constructor( public http: HttpClient ) {
     console.log("Servicio SpotiApp listo!");
@@ -23,7 +23,7 @@ export class SpotiAppService {
   }
 
   getArtistas(termino:string){
-    let url = `${ this.urlSpotify }search?q=${termino}&type=artist&limit=50`;
+    let url = `${ this.urlSpotify }search?q=${termino}&type=artist`;
     let headers = this.getHeaders();
 
     return this.http.get(url, { headers }).map( (res:any) =>{
