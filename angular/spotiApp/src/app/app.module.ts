@@ -11,12 +11,14 @@ import { SpotiAppService } from '../app/services/spoti-app.service';
 
 //pipes
 import { DomseguroPipe } from '../app/pipes/domseguro.pipe';
+import { SinFotoPipe } from './pipes/sin-foto.pipe';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArtistComponent } from './components/artist/artist.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ArtistComponent } from './components/artist/artist.component';
     NavbarComponent,
     SearchComponent,
     DomseguroPipe,
-    ArtistComponent
+    ArtistComponent,
+    SinFotoPipe
   ],
   imports: [
     BrowserModule,

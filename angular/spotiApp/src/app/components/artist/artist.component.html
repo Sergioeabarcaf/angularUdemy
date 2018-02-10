@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-3">
-      <img [src]="artista.images[1].url" class="mx-auto d-block rounded-circle"  style="max-width:100%;" alt="" *ngIf="artista.images.length > 0">
-      <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="artista.images.length == 0">
+      <img [src]="artista.images | sinFoto" class="mx-auto d-block rounded-circle"  style="max-width:100%;" alt="">
+      <!-- <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="artista.images.length == 0"> -->
     </div>
     <br>
     <div class="col-12 col-sm-12 col-md-9">
@@ -19,8 +19,8 @@
       <p>{{ i + 1 }}</p>
     </div>
     <div class="col-3">
-      <img [src]="pista.album.images[1].url" class="img-thumbnail"  style="max-width:100%;" alt="" >
-      <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="pista.album.images.length == 0">
+      <img [src]="pista.album.images | sinFoto" class="img-thumbnail"  style="max-width:100%;" alt="" >
+      <!-- <img src="../../assets/img/noimage.png" class="mx-auto d-block rounded-circle" style="max-width:100%;" alt="" *ngIf="pista.album.images.length == 0"> -->
     </div>
     <div class="col-2">
       <p>{{ pista.name }}</p>
