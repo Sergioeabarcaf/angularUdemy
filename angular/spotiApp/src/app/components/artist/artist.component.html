@@ -33,7 +33,7 @@
         <source [src]="pista.preview_url">Navegador malo
       </audio> -->
 
-      <iframe src="https://open.spotify.com/embed?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+      <iframe [src]="pista.uri | domseguro: 'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
     </div>
   </div>
 </div>
