@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgSwitchComponent implements OnInit {
 
-  alerta:string = "info";
+  alerta:string = "primary";
 
   constructor() { }
 
