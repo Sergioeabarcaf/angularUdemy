@@ -1,3 +1,6 @@
 <div [ngClass]="alerta" class="alert" role="alert">
   This is a success alert—check it out!
 </div>
+
+<button class="btn btn-info" type="button" (click)="alerta = 'alert-info'">INFO</button>
+<button class="btn btn-success" type="button" (click)="alerta = 'alert-success'">SUCCESS</button>
