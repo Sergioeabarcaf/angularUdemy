@@ -9,6 +9,10 @@ export class ClasesComponent implements OnInit {
 
   alerta:string = "alert-danger"
 
+  propiedades:object = {
+    danger: true
+  }
+
   constructor() { }
 
   ngOnInit() {
