@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClasesComponent implements OnInit {
 
+  alerta:string = "alert-danger"
+
   constructor() { }
 
   ngOnInit() {
