@@ -1,3 +1,6 @@
-<p>
-  ng-switch works!
-</p>
+<div [ngSwitch]="alerta">
+  <div *ngSwitchCase="'success'">success</div>
+  <div *ngSwitchCase="'warning'">warning</div>
+  <div *ngSwitchCase="'info'">info</div>
+  <div *ngSwitchDefault>danger</div>
+</div>
