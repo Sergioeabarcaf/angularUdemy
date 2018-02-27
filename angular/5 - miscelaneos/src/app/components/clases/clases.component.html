@@ -17,6 +17,8 @@
 <hr>
 <h2>Procesos Asincronos <small>component</small></h2>
 
-<button class="btn btn-primary" type="button" name="button">
-<i class="fa fa-save"></i>
-Guardar Cambios</button>
+<button class="btn btn-primary" type="button" name="button" [disabled]=cargando (click)="ejecutar()">
+  <i [ngClass]="{'fa-save':!cargando, 'fa-refresh fa-spin':cargando }" class="fa fa-save"></i>
+  <span *ngIf="!cargando">Guardar Cambios</span>
+  <span *ngIf="cargando">Espere un momento</span>
+</button>
