@@ -11,7 +11,7 @@ import { ResaltadoDirective } from './directives/resaltado.directive';
 import { NgSwitchComponent } from './components/ng-switch/ng-switch.component';
 import { HomeComponent } from './components/home/home.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
-import { UsuarioNuevoComponent } from './component/usuario/usuario-nuevo.component';
+import { UsuarioNuevoComponent } from './components/usuarios/usuario-nuevo.component';
 import { UsuarioEditarComponent } from './components/usuarios/usuario-editar.component';
 import { UsuarioDetalleComponent } from './components/usuarios/usuario-detalle.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
