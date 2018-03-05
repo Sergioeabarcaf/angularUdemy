@@ -10,6 +10,8 @@ import { ClasesComponent } from './components/clases/clases.component';
 import { ResaltadoDirective } from './directives/resaltado.directive';
 import { NgSwitchComponent } from './components/ng-switch/ng-switch.component';
 import { HomeComponent } from './components/home/home.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { UsuarioNuevoComponent } from './component/usuario/usuario-nuevo.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { HomeComponent } from './components/home/home.component';
     ResaltadoDirective,
     NgSwitchComponent,
     HomeComponent,
+    UsuariosComponent,
+    UsuarioNuevoComponent,
   ],
   imports: [
     BrowserModule,
