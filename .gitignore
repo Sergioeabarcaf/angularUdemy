@@ -1,10 +1,10 @@
-#.DS_Store
-#Thumbs.db
+.DS_Store
+Thumbs.db
 
 #angular/node_modules
-#*/**/node_modules
-#*/**/package-lock.json
-#*/**/dist
-#*/**/tmp
-#*/**/out-tsc
-#*/.gitignore
+*/**/node_modules
+*/**/package-lock.json
+*/**/dist
+*/**/tmp
+*/**/out-tsc
+*/.gitignore
