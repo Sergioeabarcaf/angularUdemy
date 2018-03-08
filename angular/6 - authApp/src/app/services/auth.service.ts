@@ -19,7 +19,7 @@ export class AuthService {
 
   constructor(public router: Router) {}
 
-  public login(): void {s
+  public login(): void {
     this.auth0.authorize();
   }
 
