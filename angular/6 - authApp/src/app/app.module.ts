@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PreciosComponent } from './components/precios/precios.component';
 import { ProtegidaComponent } from './components/protegida/protegida.component';
 
-import { AuthService } from './components/services/auth.service';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
