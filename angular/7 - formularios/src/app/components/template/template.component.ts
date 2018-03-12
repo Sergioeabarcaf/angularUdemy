@@ -4,14 +4,14 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
-  styles: []
+  styleUrls: ['./template.component.css']
 })
 export class TemplateComponent implements OnInit {
 
   usuario:Object = {
-    nombre: "sergio",
-    apellido: "abarca",
-    email: "sergio@perro.com"
+    nombre: null,
+    apellido: null,
+    email: null
   }
 
   constructor() { }
