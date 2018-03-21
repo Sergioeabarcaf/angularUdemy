@@ -20,5 +20,9 @@ export class DataComponent {
 
   }
 
+  guardarCambios(){
+    console.log( this.forma.value );
+  }
+
 
 }
