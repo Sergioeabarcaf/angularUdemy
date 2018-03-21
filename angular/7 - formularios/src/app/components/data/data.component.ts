@@ -38,6 +38,12 @@ export class DataComponent {
 
   }
 
+  addHobbies(){
+    (<FormArray>this.forma.controls['hobbies']).push(
+      new FormControl('', Validators.required )
+    )
+  }
+
   guardarCambios(){
     console.log( this.forma.value );
     console.log( this.forma );
