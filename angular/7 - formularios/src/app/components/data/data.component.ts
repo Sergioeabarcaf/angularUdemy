@@ -19,6 +19,11 @@ export class DataComponent {
     hobbies:['correr', 'dormir', 'programar']
   }
 
+  noPalabras:string[] = [
+    "perro",
+    "gato",
+  ]
+
   constructor() {
 
     console.log( this.usuario );
@@ -26,7 +31,7 @@ export class DataComponent {
     this.forma = new FormGroup({
       'nombreCompleto': new FormGroup({
         'nombre': new FormControl('',Validators.required),
-        'apellido': new FormControl('',[Validators.required, Validators.minLength(3)])
+        'apellido': new FormControl('',[Validators.required, Validators.minLength(3), this.palabrasNoPermitidas])
       }),
       'email': new FormControl('',[ Validators.required , Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
       'hobbies': new FormArray([
@@ -42,6 +47,15 @@ export class DataComponent {
     (<FormArray>this.forma.controls['hobbies']).push(
       new FormControl('', Validators.required )
     )
+  }
+
+  palabrasNoPermitidas( control:FormControl ): {[s:string]:boolean} {
+    if(control.value === "perro"){
+      return {palabrasNoPermitidas: true};
+    }
+    else{
+      return null;
+    }
   }
 
   guardarCambios(){
