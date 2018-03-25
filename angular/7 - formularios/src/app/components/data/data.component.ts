@@ -58,7 +58,7 @@ export class DataComponent {
     }
   }
 
-  guardarCambios(){
+   guardarCambios(){
     console.log( this.forma.value );
     console.log( this.forma );
     this.forma.reset({

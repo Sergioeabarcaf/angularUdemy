@@ -23,7 +23,7 @@ export class HeroeComponent implements OnInit {
     this.forma = new FormGroup ({
       'nombre': new FormControl('',Validators.required),
       'bio': new FormControl('', Validators.required),
-      'casa': new FormControl('',Validators.required),
+      'casa': new FormControl('', Validators.required),
       'key': new FormControl()
     })
 
@@ -33,13 +33,17 @@ export class HeroeComponent implements OnInit {
   }
 
   guardarCambios(){
-    console.log(this.forma)
-    this.forma.reset({
-      nombre: '',
-      bio: '',
-      casa: '',
-      key: ''
-    });
+    this.heroe.nombre = this.forma.controls.nombre.value;
+    this.heroe.bio = this.forma.controls.bio.value;
+    this.heroe.casa = this.forma.controls.casa.value;
+    this.heroe.key = this.forma.controls.key.value;
+    console.log(this.heroe);
+    // this.forma.reset({
+    //   nombre: '',
+    //   bio: '',
+    //   casa: '',
+    //   key: ''
+    // });
 
   }
 
