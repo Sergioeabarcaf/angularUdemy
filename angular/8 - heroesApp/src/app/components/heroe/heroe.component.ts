@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Heroe } from '../../intefaces/heroe.interface';
+import { HeroesService } from '../../services/heroes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-heroe',
@@ -18,7 +20,7 @@ export class HeroeComponent implements OnInit {
     key: ""
   }
 
-  constructor() {
+  constructor(private _heroesServices:HeroesService, private router:Router ) {
 
     this.forma = new FormGroup ({
       'nombre': new FormControl('',Validators.required),
@@ -38,6 +40,14 @@ export class HeroeComponent implements OnInit {
     this.heroe.casa = this.forma.controls.casa.value;
     this.heroe.key = this.forma.controls.key.value;
     console.log(this.heroe);
+
+    this._heroesServices.nuevoHeroe( this.heroe ).subscribe(
+      data=>{
+        this.router.navigate(['/heroe',data.name]);
+      },
+      error => {
+        console.error(error)
+      });
     // this.forma.reset({
     //   nombre: '',
     //   bio: '',
