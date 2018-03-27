@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Heroe } from '../../intefaces/heroe.interface';
 import { HeroesService } from '../../services/heroes.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-heroe',
@@ -20,7 +21,15 @@ export class HeroeComponent implements OnInit {
     key: ""
   }
 
-  constructor(private _heroesServices:HeroesService, private router:Router ) {
+  nuevo:boolean = true;
+  id:string;
+
+  constructor(private _heroesServices:HeroesService, private router:Router, private activatedRoute:ActivatedRoute ) {
+
+    this.activatedRoute.params.subscribe( params =>{
+      console.log(params);
+      this.id = params['id'];
+    })
 
     this.forma = new FormGroup ({
       'nombre': new FormControl('',Validators.required),
@@ -35,25 +44,33 @@ export class HeroeComponent implements OnInit {
   }
 
   guardarCambios(){
+
+    // Guardar los datos del forma al heroe
     this.heroe.nombre = this.forma.controls.nombre.value;
     this.heroe.bio = this.forma.controls.bio.value;
     this.heroe.casa = this.forma.controls.casa.value;
-    this.heroe.key = this.forma.controls.key.value;
-    console.log(this.heroe);
 
-    this._heroesServices.nuevoHeroe( this.heroe ).subscribe(
-      data=>{
-        this.router.navigate(['/heroe',data.name]);
-      },
-      error => {
-        console.error(error)
-      });
-    // this.forma.reset({
-    //   nombre: '',
-    //   bio: '',
-    //   casa: '',
-    //   key: ''
-    // });
+    if( this.id == "nuevo"){
+      this._heroesServices.nuevoHeroe( this.heroe ).subscribe(
+        data=>{
+          this.router.navigate(['/heroe',data.name]);
+        },
+        error => {
+          console.error(error);
+        });
+    }
+    else{
+      this._heroesServices.actualizarHeroe( this.heroe, this.id ).subscribe(
+        data => {
+          console.log(data);
+        },
+        error => {
+          console.error(error);
+        }
+      );
+    }
+
+
 
   }
 

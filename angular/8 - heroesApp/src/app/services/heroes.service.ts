@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 export class HeroesService {
 
   url:string = "https://heroesapp-24cf4.firebaseio.com/heroes.json";
+  urlHeroe:string = "https://heroesapp-24cf4.firebaseio.com/heroes/";
 
   constructor(private http:Http) { }
 
@@ -17,7 +18,19 @@ export class HeroesService {
     });
 
     return this.http.post( this.url, body, { headers } ).map( res => {
-      console.log(res.json());
+      return res.json();
+    } )
+  }
+
+  actualizarHeroe(heroe:Heroe, key:string){
+    let body = JSON.stringify(heroe);
+    let headers = new Headers({
+      'Content-Type':'application/json'
+    });
+
+    let urlPut = `${ this.urlHeroe }${ key }.json`
+
+    return this.http.put( urlPut, body, { headers } ).map( res => {
       return res.json();
     } )
   }
