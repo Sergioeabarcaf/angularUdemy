@@ -13,13 +13,7 @@ export class HeroesComponent implements OnInit {
 
   constructor(private _heroeService:HeroesService) {
     this._heroeService.getHeroes().subscribe( data => {
-      // obtener el objeto y pasarlo a un arreglo de heroe
-      for(let i in data ){
-        let nodo = data[i];
-        nodo.key = i;
-        this.heroes.push(data[i]);
-      }
-
+      this.heroes = data;
     });
   }
 
