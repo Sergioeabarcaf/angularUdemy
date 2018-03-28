@@ -14,7 +14,7 @@ export class HeroeComponent implements OnInit {
 
   forma:FormGroup;
 
-  heroe:Heroe = {
+  private heroe:Heroe = {
     nombre: "",
     bio: "",
     casa: "",
@@ -26,17 +26,28 @@ export class HeroeComponent implements OnInit {
 
   constructor(private _heroesServices:HeroesService, private router:Router, private activatedRoute:ActivatedRoute ) {
 
-    this.activatedRoute.params.subscribe( params =>{
-      console.log(params);
-      this.id = params['id'];
-    })
-
     this.forma = new FormGroup ({
       'nombre': new FormControl('',Validators.required),
       'bio': new FormControl('', Validators.required),
-      'casa': new FormControl('', Validators.required),
+      'casa': new FormControl('Marvel', Validators.required),
       'key': new FormControl()
     })
+
+    this.activatedRoute.params.subscribe( params =>{
+      console.log(params);
+      this.id = params['id'];
+      if( this.id !== "nuevo"){
+        this._heroesServices.getHeroe( this.id ).subscribe( data => {
+          console.log(data);
+          this.heroe = data;
+          this.forma.controls.nombre.setValue( data.nombre );
+          this.forma.controls.casa.setValue( data.casa );
+          this.forma.controls.bio.setValue( data.bio );
+        })
+      }
+    })
+
+
 
    }
 
@@ -44,7 +55,6 @@ export class HeroeComponent implements OnInit {
   }
 
   guardarCambios(){
-
     // Guardar los datos del forma al heroe
     this.heroe.nombre = this.forma.controls.nombre.value;
     this.heroe.bio = this.forma.controls.bio.value;
@@ -69,9 +79,18 @@ export class HeroeComponent implements OnInit {
         }
       );
     }
+  }
 
+  agregarNuevo(forma:FormGroup){
+    this.router.navigate(['/heroe','nuevo']);
+    forma.reset({
+      casa:"Marvel"
+    });
 
-
+    // Limpiar heroe para evitar confusiones
+    this.heroe.nombre = this.forma.controls.nombre.value;
+    this.heroe.bio = this.forma.controls.bio.value;
+    this.heroe.casa = this.forma.controls.casa.value;
   }
 
 }

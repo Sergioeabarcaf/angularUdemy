@@ -35,4 +35,12 @@ export class HeroesService {
     } )
   }
 
+  getHeroe( key:string ){
+    let urlGet = `${ this.urlHeroe }${ key }.json`;
+    return this.http.get( urlGet ).map( res => {
+      console.log("resopuesta servicio",res);
+      return res.json();
+    })
+  }
+
 }
