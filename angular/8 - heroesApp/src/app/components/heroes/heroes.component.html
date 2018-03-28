@@ -23,11 +23,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let heroe of heroes">
+            <td>{{ heroe.key }}</td>
+            <td>{{ heroe.nombre }}</td>
+            <td>{{ heroe.casa }}</td>
+            <td>{{ heroe.bio }}</td>
           </tr>
           <tr>
             <td></td>

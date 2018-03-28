@@ -43,4 +43,11 @@ export class HeroesService {
     })
   }
 
+  getHeroes(){
+    return this.http.get(this.url).map( res => {
+      console.log(res);
+      return res.json();
+    });
+  }
+
 }
