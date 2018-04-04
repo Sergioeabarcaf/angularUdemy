@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { ChatService } from './services/chat.service';
+
 import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
@@ -24,7 +26,7 @@ import { ChatComponent } from './components/chat/chat.component';
     AngularFireAuthModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
