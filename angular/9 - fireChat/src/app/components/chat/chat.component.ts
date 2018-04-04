@@ -11,13 +11,18 @@ export class ChatComponent {
   mensaje:string = "";
 
   constructor(public _chatService:ChatService) {
-    this._chatService.cargarMensajes().subscribe((mensajes:any[])=>{
-      console.log(mensajes);
-    })
+    this._chatService.cargarMensajes().subscribe();
   }
 
   enviar_mensaje(){
-    console.log(this.mensaje);
+    if(this.mensaje.length > 0){
+      this._chatService.agregarMensajes( this.mensaje )
+        .then( ()=> {
+          console.log("Mensaje Enviado Correctamente.");
+          this.mensaje = "";
+        })
+        .catch( (err)=> console.error("Mensaje no fue enviado.", err));
+    }
   }
 
 }
