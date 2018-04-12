@@ -19,4 +19,9 @@ export class TmdbService {
     })
   }
 
+  buscarPelicula( texto:string ){
+    let url = `${ this.urlTMDB }/search/movie?query=${ texto }&sort_by=popularity.desc&api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
+    return this.http.get( url ).map( res => res );
+  }
+
 }
