@@ -1,8 +1,95 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <div class="jumbotron">
+    <h1>MoviesApp</h1>
+    <hr>
+    <p>Lugar donde puedes encontrar información de peliculas.</p>
+  </div>
+</div>
 
-<!-- Section perliculas actuales
+<div class="Section" id="cartelera">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center">Peliculas en cartelera</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3" *ngFor="let peliculaCartelera of cartelera">
+        <div class="card bg-dark text-white">
+          <img class="card-img" src="https://image.tmdb.org/t/p/w300{{ peliculaCartelera.poster_path }}" alt="Card image">
+          <div class="card-img-overlay">
+            <h5 class="card-title text-center">{{ peliculaCartelera.title }}</h5>
+            <p class="card-text text-right">{{ peliculaCartelera.release_date }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="Section" id="populares">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center">Ranking de peliculas populares</h2>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Popularity</th>
+            <th scope="col">ver más</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let peliculaPopular of populares">
+            <th scope="row"><img src="https://image.tmdb.org/t/p/w200{{ peliculaPopular.poster_path }}" alt="" class="img-rounded center-block"></th>
+            <td>{{ peliculaPopular.title }}</td>
+            <td>{{ peliculaPopular.popularity }}</td>
+            <td> <button type="button" class="btn btn-outline-danger" name="button">Conoce más</button> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="Section" id="Populares de niños">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center">Peliculas populares de niños</h2>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Popularity</th>
+            <th scope="col">ver más</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let peliculaInfantil of popularesInfantil">
+            <th scope="row"><img src="https://image.tmdb.org/t/p/w200{{ peliculaInfantil.poster_path }}" alt="" class="img-rounded center-block"></th>
+            <td>{{ peliculaInfantil.title }}</td>
+            <td>{{ peliculaInfantil.popularity }}</td>
+            <td><button type="button" class="btn btn-outline-danger" name="button">Conoce más</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--
 
 Seccion peliculas populares
 

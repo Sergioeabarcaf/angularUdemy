@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'app';
 
   constructor(private _tmdbService:TmdbService){
-    this._tmdbService.getPopulares().subscribe( data => console.log("esto es en app.component ", data));
+    // this._tmdbService.getPopulares().subscribe( data => console.log("esto es en app.component ", data));
   }
 
 

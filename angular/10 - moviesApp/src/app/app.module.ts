@@ -9,7 +9,7 @@ import { APP_ROUTING } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/search/navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieComponent } from './components/movie/movie.component';
 
