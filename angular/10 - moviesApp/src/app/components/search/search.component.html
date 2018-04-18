@@ -12,24 +12,26 @@
 <br>
 <br>
 <div class="container text-center">
-  <form>
+  <form [formGroup]=form (ngSubmit)="buscar()">
     <div class="form-group">
       <h3>¿ Peliculas ?</h3>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="pregunta sin miedo">
+      <input type="text" class="form-control" formControlName="movies" aria-describedby="emailHelp" placeholder="pregunta sin miedo">
     </div>
     <button type="submit" class="btn btn-primary">Mostrar</button>
   </form>
 </div>
 <br>
 <br>
-<div class="card-columns">
-  <div class="card">
-    <div class="card-header">
-      Titulo
-    </div>
-    <a href="#"><img class="card-img-top" src="..." alt="Card image cap"></a>
-    <div class="card-body">
-      <p class="card-text">Descripcion</p>
+<div class="container" *ngIf="arrMovies.results.length > 0">
+  <div class="card-columns">
+    <div class="card" *ngFor="let movie of arrMovies.results">
+      <div class="card-header">
+        {{ movie.title }}
+      </div>
+      <a [routerLink]="['/movie','id']"><img class="card-img-top" src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" alt="Card image cap"></a>
+      <div class="card-body">
+        <p class="card-text">{{ movie.overview }}</p>
+      </div>
     </div>
   </div>
 </div>

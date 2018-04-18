@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TmdbService } from './services/tmdb.service';
 
@@ -20,13 +20,14 @@ import { MovieComponent } from './components/movie/movie.component';
     HomeComponent,
     NavbarComponent,
     SearchComponent,
-    MovieComponent
+    MovieComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientJsonpModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     APP_ROUTING
   ],
   providers: [TmdbService],
