@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private _tmdbService:TmdbService) { }
 
   ngOnInit() {
-    this._tmdbService.getCartelera().subscribe( data => this.cartelera = data);
+    this._tmdbService.getCartelera("2018-03-26","2018-04-16").subscribe( data => this.cartelera = data);
     this._tmdbService.getPopularesInfantil().subscribe( data => this.popularesInfantil = data);
     this._tmdbService.getPopulares().subscribe( data => this.populares = data);
   }

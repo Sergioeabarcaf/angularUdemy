@@ -11,32 +11,32 @@ export class TmdbService {
   constructor( private http:HttpClient) { }
 
   getPopulares(){
-    let url = `${ this.urlTMDB }/discover/movie?sort_by=popularity.desc&api_key=${ this.apiKey }`;
+    let url = `${ this.urlTMDB }/discover/movie?api_key=${ this.apiKey }&region=CL&sort_by=popularity.desc`;
     return this.http.get(url).map( res => {
-      console.log("Esto es en el servicio ",res);
       return res;
     })
   }
 
-  getCartelera(){
-    let url = `${ this.urlTMDB }/discover/movie?sort_by=release_date.desc&primary_release_date.gte=2018-02-01&primary_release_date.lte=2018-04-16api_key=${ this.apiKey }`;
+  getCartelera(inicio:string, hoy:string){
+    let url = `${ this.urlTMDB }/discover/movie?api_key=${ this.apiKey }&primary_release_date.gte=${ inicio }&primary_release_date.lte=${ hoy }`;
     return this.http.get( url ).map( res => {
-      console.log(res);
       return res;
     });
   }
 
   getPopularesInfantil(){
-    let url = `${ this.urlTMDB }/discover/movie?certification_country=CL&certification.lte=G&sort_by=popularity.desc&api_key=${ this.apiKey }&lenguaje=es-CLregion=CL`;
+    let url = `${ this.urlTMDB }/discover/movie?api_key=${ this.apiKey }&certification_country=CL&certification.lte=G&sort_by=popularity.desc&lenguaje=es-CLregion=CL`;
     return this.http.get( url ).map( res => {
-      console.log(res);
       return res;
     });
   }
 
   buscarPelicula( texto:string ){
-    let url = `${ this.urlTMDB }/search/movie?query=${ texto }&sort_by=popularity.desc&api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
-    return this.http.get( url ).map( res => res );
+    let url = `${ this.urlTMDB }/search/movie?api_key=${ this.apiKey }&query=${ texto }&sort_by=popularity.desc&language=es`;
+    return this.http.get( url ).map( res => {
+      console.log(res);
+      return res;
+    });
   }
 
 
