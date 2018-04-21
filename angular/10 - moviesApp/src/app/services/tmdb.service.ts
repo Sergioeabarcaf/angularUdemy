@@ -10,34 +10,42 @@ export class TmdbService {
 
   constructor( private http:HttpClient) { }
 
-  getPopulares(){
+  getPopulares(limite:number){
     let url = `${ this.urlTMDB }/discover/movie?api_key=${ this.apiKey }&region=CL&sort_by=popularity.desc`;
     return this.http.get(url).map( res => {
-      return res;
+      return this.trunc(res, limite);
     })
   }
 
-  getCartelera(inicio:string, hoy:string){
-    let url = `${ this.urlTMDB }/discover/movie?api_key=${ this.apiKey }&primary_release_date.gte=${ inicio }&primary_release_date.lte=${ hoy }`;
+  getCartelera(desdeStr:string, hastaStr:string, limite:number){
+    let url = `${ this.urlTMDB }/discover/movie?api_key=${ this.apiKey }&primary_release_date.gte=${ desdeStr }&primary_release_date.lte=${ hastaStr }`;
     return this.http.get( url ).map( res => {
-      return res;
+      return this.trunc(res, limite);
     });
   }
 
-  getPopularesInfantil(){
-    let url = `${ this.urlTMDB }/discover/movie?api_key=${ this.apiKey }&certification_country=CL&certification.lte=G&sort_by=popularity.desc&lenguaje=es-CLregion=CL`;
+  getPopularesInfantil(limite:number){
+    let url = `${ this.urlTMDB }/discover/movie?api_key=${ this.apiKey }&certification_country=CL&certification.lte=G&sort_by=popularity.desc&lenguaje=es`;
     return this.http.get( url ).map( res => {
-      return res;
+      return this.trunc(res, limite);
     });
   }
 
-  buscarPelicula( texto:string ){
+  buscarPelicula( texto:string, limite:number ){
     let url = `${ this.urlTMDB }/search/movie?api_key=${ this.apiKey }&query=${ texto }&sort_by=popularity.desc&language=es`;
     return this.http.get( url ).map( res => {
-      console.log(res);
       return res;
     });
   }
 
+
+  trunc(arr:any, limit:number){
+    let movies:any[] = [];
+    for(let i=0; i<limit; i++){
+      movies.push(arr.results[i]);
+    }
+    console.log(movies);
+    return movies;
+  }
 
 }

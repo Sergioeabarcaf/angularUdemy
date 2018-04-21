@@ -12,12 +12,33 @@ export class HomeComponent implements OnInit {
   private popularesInfantil:any;
   private populares:any;
 
+  private desde = new Date();
+  private hasta = new Date();
+
+  private desdeStr:string;
+  private hastaStr:string;
+
+  private cantidad:number = 6;
+
   constructor(private _tmdbService:TmdbService) { }
 
   ngOnInit() {
-    this._tmdbService.getCartelera("2018-03-26","2018-04-16").subscribe( data => this.cartelera = data);
-    this._tmdbService.getPopularesInfantil().subscribe( data => this.popularesInfantil = data);
-    this._tmdbService.getPopulares().subscribe( data => this.populares = data);
+    this.desde.setDate( this.desde.getDate() - 7);
+
+    this.desdeStr = `${ this.desde.getFullYear() }-${ this.desde.getMonth() + 1 }-${ this.desde.getDate()}`;
+    this.hastaStr = `${ this.hasta.getFullYear() }-${ this.hasta.getMonth() + 1 }-${ this.hasta.getDate()}`;
+
+    this._tmdbService.getCartelera(this.desdeStr,this.hastaStr,this.cantidad).subscribe( data => {
+      this.cartelera = data;
+    });
+    this._tmdbService.getPopularesInfantil(this.cantidad).subscribe( data => {
+      this.popularesInfantil = data;
+    });
+    this._tmdbService.getPopulares(this.cantidad).subscribe( data => {
+      this.populares = data;
+    });
   }
+
+
 
 }

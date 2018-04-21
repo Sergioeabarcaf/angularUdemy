@@ -6,16 +6,17 @@
   </div>
 </div>
 
-<div class="Section text-center" id="cartelera">
+<div class="Section text-center" id="cartelera" *ngIf="cartelera">
     <div class="row">
       <div class="col-12">
         <h2>Peliculas en cartelera</h2>
+        <h4> <small> Desde el {{ desdeStr }}, hasta el {{ hastaStr }}</small> </h4>
       </div>
     </div>
     <div class="row">
-      <div class="col-2" *ngFor="let peliculaCartelera of cartelera.results">
+      <div class="col-2" *ngFor="let peliculaCartelera of cartelera">
         <a href="#">
-          <img src="https://image.tmdb.org/t/p/w300{{ peliculaCartelera.poster_path }}" alt="{{peliculaCartelera.title}}" class="img-thumbnail">
+          <img src="{{ peliculaCartelera | movieImg }}" alt="{{peliculaCartelera.title}}" class="img-thumbnail">
           <p>{{ peliculaCartelera.title }}</p>
         </a>
       </div>
@@ -25,16 +26,16 @@
 <br>
 
 
-<div class="Section text-center" id="popularesInfantil">
+<div class="Section text-center" id="popularesInfantil" *ngIf="popularesInfantil">
     <div class="row">
       <div class="col-12">
         <h2>Peliculas infantiles populares</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-2" *ngFor="let infantil of popularesInfantil.results">
+      <div class="col-2" *ngFor="let infantil of popularesInfantil">
         <a href="#">
-          <img src="https://image.tmdb.org/t/p/w300{{ infantil.poster_path }}" alt="{{infantil.title}}" class="img-thumbnail">
+          <img src="{{ infantil | movieImg }}" alt="{{infantil.title}}" class="img-thumbnail">
           <p>{{ infantil.title }}</p>
         </a>
       </div>
@@ -44,16 +45,16 @@
 <br>
 
 
-<div class="Section text-center" id="populares">
+<div class="Section text-center" id="populares" *ngIf="populares">
     <div class="row">
       <div class="col-12">
         <h2>Peliculas populares</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-2" *ngFor="let popular of populares.results">
+      <div class="col-2" *ngFor="let popular of populares">
         <a href="#">
-          <img src="https://image.tmdb.org/t/p/w300{{ popular.poster_path }}" alt="{{popular.title}}" class="img-thumbnail">
+          <img src="{{ popular | movieImg }}" alt="{{popular.title}}" class="img-thumbnail">
           <p>{{ popular.title }}</p>
         </a>
       </div>
