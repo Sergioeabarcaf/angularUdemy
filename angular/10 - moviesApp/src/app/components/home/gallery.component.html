@@ -1,0 +1,17 @@
+<div class="Section text-center" *ngIf="movies">
+    <div class="row">
+      <div class="col-12">
+        <h2> {{ title }} </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2" *ngFor="let movie of movies">
+        <a href="#">
+          <img src="{{ movie | movieImg }}" alt="{{movie.title}}" class="img-thumbnail">
+          <p>{{ movie.title }}</p>
+        </a>
+      </div>
+    </div>
+</div>
+<br>
+<br>

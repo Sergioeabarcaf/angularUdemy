@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { MovieImgPipe } from './pipes/movie-img.pipe';
+import { GalleryComponent } from './components/home/gallery.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MovieImgPipe } from './pipes/movie-img.pipe';
     SearchComponent,
     MovieComponent,
     MovieImgPipe,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
