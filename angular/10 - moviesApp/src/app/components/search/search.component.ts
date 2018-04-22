@@ -19,8 +19,19 @@ export class SearchComponent{
   }
 
   buscar(){
-    this._tmdbService.buscarPelicula(this.form.controls.movies.value).subscribe( data => this.arrMovies = data);
-    console.log(this.arrMovies);
+    this._tmdbService.buscarPelicula(this.form.controls.movies.value).subscribe( data => {
+      this.arrMovies = this.movieValidador(data);
+      console.log(this.arrMovies);
+    });
+
   }
 
+  movieValidador(data:any){
+    if(data.results.length == 0){
+      return false;
+    }
+    else{
+      return data;
+    }
+  }
 }

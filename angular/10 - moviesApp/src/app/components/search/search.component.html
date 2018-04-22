@@ -22,18 +22,21 @@
 </div>
 <br>
 <br>
-<div class="container" *ngIf="arrMovies.results.length > 0">
+<div class="container" *ngIf="arrMovies != false">
   <div class="card-columns">
     <div class="card" *ngFor="let movie of arrMovies.results">
       <div class="card-header">
         {{ movie.title }}
       </div>
-      <a [routerLink]="['/movie','id']"><img class="card-img-top" src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" alt="Card image cap"></a>
+      <a [routerLink]="['/movie','id']"><img class="card-img-top" src="{{ movie | movieImg }}" alt="Card image cap"></a>
       <div class="card-body">
         <p class="card-text">{{ movie.overview }}</p>
       </div>
     </div>
   </div>
+</div>
+<div class="container" *ngIf="arrMovies == false">
+  <h2 class="text-center">La busqueda con {{ form.controls.movies.value }} no tuvo resultados</h2>
 </div>
 
 <!-- input con pelicula, se debe mostrar en forma de tarjetas u

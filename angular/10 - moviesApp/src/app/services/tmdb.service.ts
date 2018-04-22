@@ -31,7 +31,7 @@ export class TmdbService {
     });
   }
 
-  buscarPelicula( texto:string, limite:number ){
+  buscarPelicula( texto:string ){
     let url = `${ this.urlTMDB }/search/movie?api_key=${ this.apiKey }&query=${ texto }&sort_by=popularity.desc&language=es`;
     return this.http.get( url ).map( res => {
       return res;
