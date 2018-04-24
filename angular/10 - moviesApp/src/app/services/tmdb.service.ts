@@ -8,6 +8,8 @@ export class TmdbService {
   private apiKey:string = "79b3e58fa02c593b5caeb0072ac7c71b";
   private urlTMDB:string = "https://api.themoviedb.org/3";
 
+  private movieSearch:any;
+
   constructor( private http:HttpClient) { }
 
   getPopulares(limite:number){
@@ -34,7 +36,8 @@ export class TmdbService {
   buscarPelicula( texto:string ){
     let url = `${ this.urlTMDB }/search/movie?api_key=${ this.apiKey }&query=${ texto }&sort_by=popularity.desc&language=es`;
     return this.http.get( url ).map( res => {
-      return res;
+      this.movieSearch = this.movieValidador(res);
+      return this.movieValidador(res);
     });
   }
 
@@ -46,6 +49,15 @@ export class TmdbService {
     }
     console.log(movies);
     return movies;
+  }
+
+  movieValidador(data:any){
+    if(data.results.length == 0){
+      return false;
+    }
+    else{
+      return data.results;
+    }
   }
 
 }

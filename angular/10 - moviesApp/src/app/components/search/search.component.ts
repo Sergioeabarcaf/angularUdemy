@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TmdbService } from '../../services/tmdb.service';
 import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -9,29 +11,32 @@ import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 export class SearchComponent{
 
   form:FormGroup;
+  movie:string = "";
 
   arrMovies:any;
 
-  constructor(private _tmdbService:TmdbService) {
+  constructor(private _tmdbService:TmdbService, private activatedRoute:ActivatedRoute) {
     this.form = new FormGroup({
       'movies' : new FormControl('',[Validators.required, Validators.minLength(2)])
+    })
+
+    this.activatedRoute.params.subscribe( param => {
+      console.log(param);
+      if(param['param']){
+        this.movie = param['param'];
+        this.buscar()
+      }
     })
   }
 
   buscar(){
-    this._tmdbService.buscarPelicula(this.form.controls.movies.value).subscribe( data => {
-      this.arrMovies = this.movieValidador(data);
-      console.log(this.arrMovies);
+    if(this.form.controls.movies.value > length){
+      this.movie = this.form.controls.movies.value;
+    }
+
+    this._tmdbService.buscarPelicula(this.movie).subscribe( data => {
+      this.arrMovies = data;
     });
 
-  }
-
-  movieValidador(data:any){
-    if(data.results.length == 0){
-      return false;
-    }
-    else{
-      return data;
-    }
   }
 }
