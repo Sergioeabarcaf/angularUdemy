@@ -37,10 +37,12 @@ export class TmdbService {
     let url = `${ this.urlTMDB }/search/movie?api_key=${ this.apiKey }&query=${ texto }&sort_by=popularity.desc&language=es`;
     return this.http.get( url ).map( res => {
       this.movieSearch = this.movieValidador(res);
+      console.log(this.movieSearch);
       return this.movieValidador(res);
     });
   }
 
+  //Validadores
 
   trunc(arr:any, limit:number){
     let movies:any[] = [];

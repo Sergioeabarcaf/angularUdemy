@@ -12,19 +12,20 @@
 <br>
 <br>
 <div class="container text-center">
-  <form [formGroup]=form (ngSubmit)="buscar()">
-    <div class="form-group">
-      <h3>¿ Peliculas ?</h3>
-      <input type="text" class="form-control" formControlName="movies" aria-describedby="emailHelp" placeholder="pregunta sin miedo">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label>Buscar</label>
+        <input [(ngModel)]="search" type="text" name="search" placeholder="Busca la pelicula que quieres!" (keyUp.enter)="buscar()" class="form-control">
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Mostrar</button>
-  </form>
+  </div>
 </div>
 <br>
 <br>
-<div class="container" *ngIf="arrMovies != false">
+<div class="container" *ngIf="_tmdbService.movieSearch.length > 0">
   <div class="card-columns">
-    <div class="card" *ngFor="let movie of arrMovies">
+    <div class="card" *ngFor="let movie of _tmdbService.movieSearch">
       <div class="card-header">
         {{ movie.title }}
       </div>

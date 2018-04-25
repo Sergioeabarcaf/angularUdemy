@@ -8,7 +8,7 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'movie/:id', component: MovieComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'search/:param', component: SearchComponent },
+  { path: 'search/:search', component: SearchComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
