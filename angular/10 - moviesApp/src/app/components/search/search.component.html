@@ -23,13 +23,13 @@
 </div>
 <br>
 <br>
-<div class="container" *ngIf="_tmdbService.movieSearch.length > 0">
+<div class="container" *ngIf="_tmdbService.movieSearch">
   <div class="card-columns">
     <div class="card" *ngFor="let movie of _tmdbService.movieSearch">
       <div class="card-header">
         {{ movie.title }}
       </div>
-      <a [routerLink]="['/movie','id']"><img class="card-img-top" src="{{ movie | movieImg }}" alt="Card image cap"></a>
+      <a [routerLink]="['/movie',movie.id]"><img class="card-img-top" src="{{ movie | movieImg }}" alt="Card image cap"></a>
       <div class="card-body">
         <p class="card-text">{{ movie.overview }}</p>
       </div>
