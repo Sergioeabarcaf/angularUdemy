@@ -6,7 +6,7 @@
     </div>
     <div class="row">
       <div class="col-2" *ngFor="let movie of movies">
-        <a href="#">
+        <a [routerLink]="['/movie',movie.id,'home']">
           <img src="{{ movie | movieImg }}" alt="{{movie.title}}" class="img-thumbnail">
           <p>{{ movie.title }}</p>
         </a>
