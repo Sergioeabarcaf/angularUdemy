@@ -15,7 +15,6 @@ export class SearchComponent{
   constructor(public _tmdbService:TmdbService, private activatedRoute:ActivatedRoute) {
 
     this.activatedRoute.params.subscribe( param => {
-      console.log(param);
       if(param['search']){
         this.search = param['search'];
         this.buscar()
@@ -27,7 +26,6 @@ export class SearchComponent{
     if(this.search.length == 0){
       return ;
     }
-
     this._tmdbService.buscarPelicula(this.search).subscribe();
   }
 }
