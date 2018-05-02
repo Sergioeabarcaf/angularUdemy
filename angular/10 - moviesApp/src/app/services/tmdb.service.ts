@@ -41,6 +41,13 @@ export class TmdbService {
     });
   }
 
+  getMovie( id:string ){
+    let url = `${ this.urlTMDB }/movie/${ id }?api_key=${ this.apiKey }`
+    return this.http.get(url).map( res => {
+      return res;
+    })
+  }
+
   //Validadores
 
   trunc(arr:any, limit:number){
