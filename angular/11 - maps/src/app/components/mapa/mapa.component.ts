@@ -30,7 +30,8 @@ export class MapaComponent implements OnInit {
   }
 
   eliminarMarcador(idx:number){
-    
+    this.marcadores.splice(idx,1);
+    this.guardarStorage();
   }
 
   guardarStorage(){

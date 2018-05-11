@@ -6,13 +6,13 @@
     <!-- this creates a google map on the page with the given lat/lng from -->
     <!-- the component as the initial center of the map: -->
     <agm-map (mapClick)="agregarMarcador( $event )" [latitude]="lat" [longitude]="lng">
-      <agm-marker *ngFor="let marcador of marcadores" [latitude]="marcador.lat" [longitude]="marcador.lon">
+      <agm-marker *ngFor="let marcador of marcadores; let i = index" [latitude]="marcador.lat" [longitude]="marcador.lon">
         <agm-info-window>
           <strong>{{marcador.titulo}}</strong>
           <p>{{marcador.descripcion}}</p>
           <div>
             <button mat-raised-button color="primary">Editar</button>
-            <button mat-raised-button color="warn">Eliminar</button>
+            <button mat-raised-button color="warn" (click)="eliminarMarcador(i)">Eliminar</button>
 
           </div>
         </agm-info-window>
