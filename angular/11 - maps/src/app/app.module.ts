@@ -8,11 +8,14 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { MapaComponent } from './components/mapa/mapa.component';
+import { MapaEditarComponent } from './components/mapa/mapa-editar.component';
 
 @NgModule({
+  entryComponents:[MapaEditarComponent],
   declarations: [
     AppComponent,
-    MapaComponent
+    MapaComponent,
+    MapaEditarComponent
   ],
   imports: [
     BrowserModule,
