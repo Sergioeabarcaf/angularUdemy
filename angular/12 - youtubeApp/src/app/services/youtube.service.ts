@@ -23,7 +23,6 @@ export class YoutubeService {
     params.set('key',this.apiKey);
 
     return this.http.get( url, {search: params} ).map( data => {
-      console.log(data.json());
       this.nextPageToken = data.json().nextPageToken;
       let videos:any[] = [];
       for(let video of data.json().items){
