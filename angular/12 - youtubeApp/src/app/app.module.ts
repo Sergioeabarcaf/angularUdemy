@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { APP_ROUTING } from './app.routes';
 
@@ -16,6 +17,7 @@ import { YoutubeService } from './services/youtube.service';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     APP_ROUTING
   ],
   providers: [YoutubeService],
