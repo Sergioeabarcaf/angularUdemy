@@ -14,18 +14,24 @@ export class HomeComponent implements OnInit {
   videoSelec:any;
 
   constructor(public _youtubeService:YoutubeService) {
-    this._youtubeService.getAllVideosCanal().subscribe( data => {
-      this.videos = data;
-      console.log(this.videos);
-    });
+    this._youtubeService.getAllVideosCanal().subscribe( data => this.videos = data );
   }
 
   ngOnInit() {
   }
 
+  cargarMas(){
+    this._youtubeService.getAllVideosCanal().subscribe( data => this.videos.push.apply(this.videos, data));
+  }
+
   verVideo( video:any ){
     this.videoSelec = video;
     $('#exampleModal').modal();
+  }
+
+  cerrarModal(){
+    this.videoSelec = null;
+    $('#exampleModal').modal('hide');
   }
 
 }

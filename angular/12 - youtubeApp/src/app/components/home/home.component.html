@@ -17,10 +17,11 @@
       </div>
     </div>
   </div>
+  <button type="button" class="btn btn-block btn-danger" name="button" (click)="cargarMas()">Cargar Más</button>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content" *ngIf="videoSelec">
       <div class="modal-header">
@@ -30,10 +31,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <iframe width="100%" src="https://www.youtube.com/embed/{{ videoSelec.resourceId.videoId }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="100%" height="400px" [src]="videoSelec.resourceId.videoId | youtubeVideo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Close</button>
       </div>
     </div>
   </div>
