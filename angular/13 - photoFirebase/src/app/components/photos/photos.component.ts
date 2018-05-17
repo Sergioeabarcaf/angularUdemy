@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CargaImgService } from '../../services/carga-img.service';
 
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
   styleUrls: ['./photos.component.css']
 })
-export class PhotosComponent implements OnInit {
+export class PhotosComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(private _cargaImgService:CargaImgService) { }
 
 }
