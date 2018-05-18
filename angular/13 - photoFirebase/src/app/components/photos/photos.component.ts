@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CargaImgService } from '../../services/carga-img.service';
 
 @Component({
   selector: 'app-photos',
@@ -8,6 +7,6 @@ import { CargaImgService } from '../../services/carga-img.service';
 })
 export class PhotosComponent {
 
-  constructor(private _cargaImgService:CargaImgService) { }
+  constructor() { }
 
 }
