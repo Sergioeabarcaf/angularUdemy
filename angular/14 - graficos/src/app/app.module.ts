@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { LineComponent } from './components/line/line.component';
 import { BarComponent } from './components/bar/bar.component';
 import { DonutsComponent } from './components/donuts/donuts.component';
+import { RadarComponent } from './components/radar/radar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LineComponent,
     BarComponent,
-    DonutsComponent
+    DonutsComponent,
+    RadarComponent
   ],
   imports: [
     BrowserModule,
