@@ -8,7 +8,7 @@
   </div>
   <div class="col-md-8">
     <h4>Cargar Archivos</h4>
-    <button type="button" class="btn btn-success" (click)="cargarImg()">Cargar a Firebase</button>
+    <button type="button" class="btn btn-success" (click)="cargarImg()" [disabled]="archivos.length === 0">Cargar a Firebase</button>
     <button type="button" class="btn btn-danger">Limpiar</button>
     <table class="table">
       <thead class="thead=dark">
