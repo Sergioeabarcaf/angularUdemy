@@ -6,12 +6,14 @@ import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { LineComponent } from './components/line/line.component';
 import { BarComponent } from './components/bar/bar.component';
+import { DonutsComponent } from './components/donuts/donuts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LineComponent,
-    BarComponent
+    BarComponent,
+    DonutsComponent
   ],
   imports: [
     BrowserModule,

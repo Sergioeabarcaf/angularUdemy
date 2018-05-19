@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-8">
+    <div style="display: block">
+      <canvas baseChart
+                  [data]="doughnutChartData"
+                  [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let leyenda of doughnutChartLabels"> {{ leyenda }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td *ngFor="let valor of doughnutChartData"> {{ valor }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<button type="button" class="btn btn-primary btn-block" (click)="update()">Update</button>
